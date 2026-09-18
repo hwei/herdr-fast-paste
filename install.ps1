@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-    [switch]$ConfigureWezTerm
+    [switch]$ConfigureWezTerm,
+    [switch]$Star
 )
 
 $ErrorActionPreference = 'Stop'
@@ -52,6 +53,15 @@ try {
     Write-Host "Installed to $installDir"
     if (-not $ConfigureWezTerm) {
         Write-Host "Run install.ps1 again with -ConfigureWezTerm, or follow the README to configure WezTerm."
+    }
+    if ($Star) {
+        if (Get-Command gh -ErrorAction SilentlyContinue) {
+            & gh repo star $repo
+            if ($LASTEXITCODE -ne 0) { throw "GitHub CLI could not star $repo" }
+            Write-Host "Starred https://github.com/$repo"
+        } else {
+            Write-Warning "The -Star option requires an authenticated GitHub CLI (`gh`)."
+        }
     }
 }
 finally {

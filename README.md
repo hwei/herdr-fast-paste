@@ -25,6 +25,12 @@ Review [`install.ps1`](install.ps1), then run:
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/hwei/herdr-fast-paste/main/install.ps1))) -ConfigureWezTerm
 ```
 
+If you explicitly want the installer to star the repository using your authenticated GitHub CLI, add `-Star`. It is never done by default:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/hwei/herdr-fast-paste/main/install.ps1))) -ConfigureWezTerm -Star
+```
+
 The installer:
 
 1. downloads the latest GitHub release and verifies its SHA-256 file;
@@ -75,4 +81,3 @@ gh repo star hwei/herdr-fast-paste
 ## License
 
 MIT
-

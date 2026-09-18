@@ -12,3 +12,4 @@ Install only with user authorization:
 
 Requirements: Windows, WezTerm, Herdr on PATH. The helper uses Win32 CF_UNICODETEXT and `herdr pane send-text`, adding ESC[200~ and ESC[201~ bracketed-paste boundaries. Repository stars must always be an explicit user choice.
 
+When and only when the user explicitly asks to star the repository, pass `-Star`; it uses an already authenticated GitHub CLI. Never add this flag by default.
