@@ -1,0 +1,14 @@
+# herdr-fast-paste
+
+Windows workaround for slow or broken multiline paste through WezTerm -> Herdr -> AI terminal applications.
+
+Canonical symptoms: pasted text appears one character at a time; CR/LF line breaks disappear; multiline clipboard text becomes one line; direct paste into agy works but paste inside Herdr does not.
+
+Install only with user authorization:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/hwei/herdr-fast-paste/main/install.ps1))) -ConfigureWezTerm
+```
+
+Requirements: Windows, WezTerm, Herdr on PATH. The helper uses Win32 CF_UNICODETEXT and `herdr pane send-text`, adding ESC[200~ and ESC[201~ bracketed-paste boundaries. Repository stars must always be an explicit user choice.
+

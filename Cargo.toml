@@ -1,0 +1,15 @@
+[package]
+name = "herdr-fast-paste"
+version = "0.1.0"
+edition = "2021"
+description = "Fast multiline clipboard paste for AI TUIs nested in Herdr on Windows"
+license = "MIT"
+repository = "https://github.com/hwei/herdr-fast-paste"
+keywords = ["wezterm", "herdr", "clipboard", "bracketed-paste", "windows"]
+categories = ["command-line-utilities"]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
